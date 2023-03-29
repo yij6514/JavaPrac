@@ -3,7 +3,7 @@ import java.util.NoSuchElementException;
 
 public class SingleLinkedList <E>{
 	protected Node<E> head;
-	private int size;
+	protected int size;
 	
 	public SingleLinkedList(){
 		head = null;

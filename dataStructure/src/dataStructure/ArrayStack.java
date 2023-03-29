@@ -3,7 +3,10 @@ package dataStructure;
 import java.util.EmptyStackException;
 
 public class ArrayStack <E> extends DynamicArrList <E>{
-	private int top = getSize();
+	
+	public ArrayStack() {
+		super();
+	}
 	
 	public void push(E item) {
 		insertLast(item);
@@ -11,13 +14,13 @@ public class ArrayStack <E> extends DynamicArrList <E>{
 	
 	public E peek() {
 		if(isEmpty()) throw new EmptyStackException();
-		return peek(top-1);
+		return peek(size - 1);
 	}
 	
 	public E pop() {
-		E tmp = peek(top-1);
+		E tmp = peek(size-1);
 		if(isEmpty()) throw new EmptyStackException();
-		delete(top-1);
+		delete(size-1);
 		return tmp;
 	}
 	

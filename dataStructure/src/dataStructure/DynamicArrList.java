@@ -3,7 +3,7 @@ import java.util.NoSuchElementException;
 
 public class DynamicArrList <E> {
 	private E a[];
-	private int size;
+	protected int size;
 	
 	public DynamicArrList() {
 		a = (E[]) new Object[1];
@@ -41,10 +41,11 @@ public class DynamicArrList <E> {
 	public E delete(int k) {
 		if(isEmpty()) throw new NoSuchElementException();
 		E item = a[k];
-		for(int i = k; i < size; i ++) a[i] = a[i+1];
+		for(int i = k; i < size - 1; i ++) a[i] = a[i+1];
 		size--;
 		if(size > 0 && size == a.length / 4)
 			resize(a.length / 2);
+		a[size] = null;
 		return item;
 	}
 	
