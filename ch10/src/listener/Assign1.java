@@ -1,11 +1,9 @@
 package listener;
 
-import java.awt.FlowLayout;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.*;
+import java.awt.event.*;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 public class Assign1 extends JFrame{
 	String str = "Love Java";

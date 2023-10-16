@@ -1,12 +1,9 @@
 package listener;
 
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseWheelEvent;
+import java.awt.*;
+import java.awt.event.*;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 public class Assign2 extends JFrame{
 	JLabel a = new JLabel("Love Java");
