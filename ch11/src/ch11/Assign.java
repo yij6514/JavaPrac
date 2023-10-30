@@ -13,6 +13,7 @@ public class Assign extends JFrame{
 	private int[] arr = {50000,10000,1000,500,100,50,10,1};
 	
 	public Assign() {
+		//프레임의 기본적인 설정사항입니다.
 		setTitle("Money Changer with CheckBox");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(500,500);
@@ -20,7 +21,7 @@ public class Assign extends JFrame{
 		Container c = getContentPane();
 		c.setBackground(new Color(255,192,203));
 		
-		
+		//유저가 얼마의 돈을 입력할지를 받는 필드가 있는 패널입니다.
 		JPanel top = new JPanel();
 		top.setBackground(new Color(255,192,203));
 		top.setLayout(new FlowLayout());
@@ -28,10 +29,11 @@ public class Assign extends JFrame{
 		
 		JTextField ad = new JTextField("0\t\t");
 		JButton cal = new JButton("계산");
+		//유저가 금액을 입력하고 계산 할 때 처리할 익명클래스입니다
 		cal.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				//메소드를 따로 지정하여 이 익명클래스에 모두 담지 않았습니다
 				calculate(Integer.valueOf(ad.getText()));
 			}
 		});
@@ -40,6 +42,7 @@ public class Assign extends JFrame{
 		top.add(ad);
 		top.add(cal);
 		
+		//금액이 계산된 결과를 보여줄 패널입니다.
 		JPanel bottom = new JPanel();
 		bottom.setBackground(new Color(255,192,203));
 		bottom.setLayout(new GridLayout(8,3,20,5));
@@ -68,19 +71,23 @@ public class Assign extends JFrame{
 		setVisible(true);
 	}
 	
+	//금액이 계산되는 메소드입니다.
 	public void calculate(int a) {
 		int div, remain;
 		remain = a;
 		for(int i = 0; i < 7; i++) {
+			//화폐를 사용할지 안할지 체크박스를 통해 조건을 받습니다
 			if(checkList[i].isSelected()) {
 				div = remain / arr[i];
 				remain %= arr[i];
 				textList[i].setText(Integer.toString(div));
 			}
 			else {
+				//체크가 안된 단위들은 0으로 처리합니다
 				textList[i].setText("0");
 			}
 		}
+		//제일 마지막 1원 단위를 지정하는 코드입니다.
 		textList[7].setText(Integer.toString(remain));
 	}
 	
